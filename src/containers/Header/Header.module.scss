@@ -3,14 +3,20 @@
 
 .container {
   background: $color-header;
-  align-items: center;
-  display: flex;
   width: 100%;
   height: 70px;
-  @media only screen {
-    @media (min-width: $screen-md) {
-      & {
-        padding: 0 11%;
+
+  &Safe {
+    width: 100%;
+    height: inherit;
+    align-items: center;
+    display: flex;
+    @media only screen {
+      @media (min-width: $screen-md) {
+        & {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
       }
     }
   }

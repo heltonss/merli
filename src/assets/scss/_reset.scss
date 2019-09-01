@@ -108,6 +108,12 @@ section {
   display: block;
 }
 
+html,
+body,
+div#root {
+  height: 100%;
+}
+
 body {
   line-height: 1;
 }

@@ -9,7 +9,12 @@ interface IOwnProps {
   getValue(value: string): void;
 }
 
-const Input = ({ placeholder, type, getValue, parentClassStyle }: IOwnProps) => {
+const Input: React.FC<IOwnProps> = ({
+  placeholder,
+  type,
+  getValue,
+  parentClassStyle,
+}: IOwnProps) => {
   const getValueInput = (event: any) => {
     getValue(event.target.value);
   };

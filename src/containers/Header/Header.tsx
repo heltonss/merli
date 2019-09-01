@@ -7,8 +7,10 @@ export class Header extends Component {
   render() {
     return (
       <div className={Style.container}>
-        <Logotype parentClassStyle={Style.logotype} />
-        <Search />
+        <div className={Style.containerSafe}>
+          <Logotype parentClassStyle={Style.logotype} />
+          <Search />
+        </div>
       </div>
     );
   }

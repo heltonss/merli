@@ -3,7 +3,7 @@ import Input from 'components/Input/Input';
 import React from 'react';
 import Style from './Search.module.scss';
 
-const Search = () => {
+const Search: React.FC = () => {
   const getValueInput = (value: string) => {
     console.log('input ', value);
   };

@@ -5,10 +5,16 @@
   background: $light-gray;
   display: block;
   width: 100%;
-  @media screen {
-    @media (min-width: $screen-md) {
-      & {
-        padding: 0 11%;
+  height: 100%;
+  &--navigation {
+    @media screen {
+      width: 100%;
+      @media (min-width: $screen-md) {
+        & {
+          background: red;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
       }
     }
   }

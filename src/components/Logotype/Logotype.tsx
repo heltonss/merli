@@ -6,7 +6,7 @@ interface IOwnProps {
   parentClassStyle?: string;
 }
 
-const Logotype = ({ parentClassStyle }: IOwnProps) => {
+const Logotype: React.FC<IOwnProps> = ({ parentClassStyle }: IOwnProps) => {
   return (
     <img
       className={parentClassStyle}

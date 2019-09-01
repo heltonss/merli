@@ -6,9 +6,11 @@ import Routes from './routes/Index';
 const App: React.FC = () => {
   return (
     <>
-      <Header />
       <main className="main">
-        <Routes />
+        <Header />
+        <div className="main--navigation">
+          <Routes />
+        </div>
       </main>
     </>
   );
