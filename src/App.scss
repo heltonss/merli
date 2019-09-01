@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import '../src/assets/scss/colors';
 @import '../src/assets/scss/screen';
 
 .main {
+  font-family: 'Roboto', sans-serif;
   background: $light-gray;
   display: block;
   width: 100%;
@@ -11,7 +13,6 @@
       width: 100%;
       @media (min-width: $screen-md) {
         & {
-          background: red;
           max-width: 1200px;
           margin: 0 auto;
         }

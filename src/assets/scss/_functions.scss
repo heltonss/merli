@@ -1,0 +1,4 @@
+@function pxToREM($fontPx) {
+  $size: $fontPx / 16px;
+  @return #{$size}rem;
+}

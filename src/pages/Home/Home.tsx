@@ -1,7 +1,8 @@
+import Breadcrumbs from 'components/Breadcrumbs/Breadcrumbs';
 import React, { Component } from 'react';
 
 export default class Home extends Component {
   render() {
-    return <div>HOme</div>;
+    return <></>;
   }
 }

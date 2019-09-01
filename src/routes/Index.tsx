@@ -1,10 +1,13 @@
+import Breadcrumbs from 'components/Breadcrumbs/Breadcrumbs';
+import Home from 'pages/Home/Home';
 import React from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
-import Home from 'pages/Home/Home';
 
 const index = () => {
   return (
     <Router>
+      <Breadcrumbs />
+
       <Route path="/" exact={true} component={Home} />
     </Router>
   );

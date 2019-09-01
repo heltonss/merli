@@ -1,0 +1,39 @@
+@import '../../assets/scss/colors';
+@import '../../assets/scss/mixins';
+
+.link {
+  @include fontSize(14px);
+  display: inline-block;
+  color: $dark-gray;
+  padding: 16px 0;
+  text-transform: lowercase;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
+
+  &:hover,
+  :active {
+    color: $dark-gray;
+  }
+
+  &::after {
+    position: relative;
+    content: '';
+    display: inline-block;
+    width: 0.4em;
+    height: 0.4em;
+    border-right: 1px solid $dark-gray;
+    border-top: 1px solid $dark-gray;
+    transform: rotate(45deg);
+    margin: 0 0.6em;
+  }
+
+  &:last-child {
+    font-weight: bolder;
+    &::after {
+      content: '';
+      display: none;
+    }
+  }
+}

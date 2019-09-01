@@ -1,3 +1,4 @@
+import Breadcrumbs from 'components/Breadcrumbs/Breadcrumbs';
 import Header from 'containers/Header/Header';
 import React from 'react';
 import './App.scss';
