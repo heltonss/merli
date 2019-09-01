@@ -1,0 +1,15 @@
+@import '../src/assets/scss/colors';
+@import '../src/assets/scss/screen';
+
+.main {
+  background: $light-gray;
+  display: block;
+  width: 100%;
+  @media screen {
+    @media (min-width: $screen-md) {
+      & {
+        padding: 0 11%;
+      }
+    }
+  }
+}
