@@ -1,0 +1,49 @@
+@import '../../assets/scss/colors';
+@import '../../assets/scss/mixins';
+
+.container {
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: solid 1px $light-gray;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .image {
+    display: inline-block;
+    & > img {
+      width: 100%;
+      border-radius: 4px/4px;
+    }
+  }
+
+  .info {
+    margin-left: 16px;
+    width: 100%;
+    max-width: 380px;
+
+    .price {
+      @include fontSize(24px);
+      display: block;
+      color: $color-title;
+      margin-bottom: 32px;
+    }
+
+    .title {
+      @include fontSize(18px);
+    }
+  }
+
+  .region {
+    @include fontSize(12px);
+    display: block;
+    margin: 44px 100px 0 0;
+
+    &:last-child {
+      margin-left: auto;
+    }
+  }
+}
