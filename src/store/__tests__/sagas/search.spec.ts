@@ -1,9 +1,7 @@
 import MockAdapter from 'axios-mock-adapter';
 import { runSaga } from 'redux-saga';
 import api from 'services/api/api';
-import { ISearchProductsState } from 'store/ducks/search/types';
-import { loadSearchProducts } from 'store/ducks/search/sagas';
-import { loadSuccess } from 'store/ducks/search/actions';
+import { ISearchProductsState, loadSearchProducts, loadSuccess } from 'store/ducks/search';
 
 const apiMock = new MockAdapter(api);
 const response: ISearchProductsState = {

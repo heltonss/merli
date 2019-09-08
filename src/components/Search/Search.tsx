@@ -1,12 +1,26 @@
 import IconSearch from 'components/Icons/IconSearch/IconSearch';
 import Input from 'components/Input/Input';
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
+import { Creators as searchProducts } from 'store/ducks/search';
 import Style from './Search.module.scss';
 
-const Search: React.FC = () => {
+interface IOwnProps {
+  searchProducts(product: string): void;
+}
+
+const Search: React.FC = (props: any) => {
+  const [valueSearch, setValueSearch] = useState('');
+
   const getValueInput = (value: string) => {
-    console.log('input ', value);
+    setValueSearch(value);
   };
+
+  const search = () => {
+    props.searchProducts(valueSearch);
+  };
+
   return (
     <div className={Style.container}>
       <Input
@@ -15,9 +29,14 @@ const Search: React.FC = () => {
         placeholder={'Buscar produtos, marcas e muito mais...'}
         getValue={getValueInput}
       />
-      <IconSearch isRounded={true} />
+      <IconSearch func={search} isRounded={true} />
     </div>
   );
 };
 
-export default Search;
+const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(searchProducts, dispatch);
+
+export default connect(
+  undefined,
+  mapDispatchToProps,
+)(Search);

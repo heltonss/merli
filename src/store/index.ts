@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 
 import reducers from './ducks/rootReducer';
 import sagas from './ducks/rootSaga';
-import { ISearchProductsState } from './ducks/search/types';
+import { ISearchProductsState } from './ducks/search';
 declare var console: any;
 
 export interface IApplicationState {

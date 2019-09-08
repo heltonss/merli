@@ -1,21 +1,45 @@
 import Product from 'components/Product/Product';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { IApplicationState } from 'store';
+import { IResultSearch } from 'store/ducks/search';
 import Style from './ProductsList.module.scss';
 
-export default class ProductsList extends Component {
+interface IOwnProps {
+  resultSearch: IResultSearch;
+}
+
+class ProductsList extends Component<IOwnProps> {
+  static defaultProps: IOwnProps = {
+    resultSearch: {
+      query: '',
+      results: [],
+    },
+  };
+
   render() {
-    const list = [1, 1, 1];
+    const { results } = this.props.resultSearch;
+
     return (
       <section className={Style.container}>
-        {list.map(product => (
+        {results.map(product => (
           <Product
-            key={Math.random()}
-            price={'$ 1980'}
-            title={'Aple ipode ducks du lroeme fararslfjka '}
-            region={'são paulo'}
+            key={product.id}
+            price={product.price}
+            title={product.title}
+            region={product.address.state_name}
           />
         ))}
       </section>
     );
   }
 }
+
+const mapStateToProps = (state: IApplicationState) => ({
+  resultSearch: state.search.data,
+});
+
+export default connect(
+  mapStateToProps,
+  undefined,
+)(ProductsList);

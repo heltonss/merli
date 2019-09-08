@@ -2,7 +2,7 @@ import React from 'react';
 import Style from './Product.module.scss';
 
 interface IOwnProps {
-  price: string;
+  price: number;
   title: string;
   region: string;
 }
