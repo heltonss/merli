@@ -28,6 +28,7 @@ const Search: React.FC = (props: any) => {
         type={'text'}
         placeholder={'Buscar produtos, marcas e muito mais...'}
         getValue={getValueInput}
+        onEnter={search}
       />
       <IconSearch func={search} isRounded={true} />
     </div>

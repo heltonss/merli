@@ -1,16 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Style from './Product.module.scss';
 
 interface IOwnProps {
+  id: string;
   price: number;
   title: string;
   region: string;
   thumbnail: string;
 }
 
-const Product: React.FC<IOwnProps> = ({ price, title, region, thumbnail }: IOwnProps) => {
+const Product: React.FC<IOwnProps> = ({ id, price, title, region, thumbnail }: IOwnProps) => {
   return (
-    <div className={Style.container}>
+    <Link to={`items/${id}`} className={Style.container}>
       <div className={Style.image}>
         <img src={thumbnail} alt={title} />
       </div>
@@ -19,7 +21,7 @@ const Product: React.FC<IOwnProps> = ({ price, title, region, thumbnail }: IOwnP
         <p className={Style.title}>{title}</p>
       </div>
       <span className={Style.region}>{region}</span>
-    </div>
+    </Link>
   );
 };
 

@@ -56,7 +56,7 @@ export const Creators = {
 
 export function* loadSearchProducts(action: any) {
   try {
-    const { data } = yield call(Api.get, `search?q=${action.payload.query}`);
+    const { data } = yield call(Api.get, `sites/MLA/search?q=${action.payload.query}`);
     yield put(Creators.loadSuccess(data));
   } catch (error) {
     // adiciona action de erro
