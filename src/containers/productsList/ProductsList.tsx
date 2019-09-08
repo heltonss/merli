@@ -25,6 +25,7 @@ class ProductsList extends Component<IOwnProps> {
         {results.map(product => (
           <Product
             key={product.id}
+            thumbnail={product.thumbnail}
             price={product.price}
             title={product.title}
             region={product.address.state_name}

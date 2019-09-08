@@ -5,13 +5,14 @@ interface IOwnProps {
   price: number;
   title: string;
   region: string;
+  thumbnail: string;
 }
 
-const Product: React.FC<IOwnProps> = ({ price, title, region }: IOwnProps) => {
+const Product: React.FC<IOwnProps> = ({ price, title, region, thumbnail }: IOwnProps) => {
   return (
     <div className={Style.container}>
       <div className={Style.image}>
-        <img src="https://via.placeholder.com/180" alt={title} />
+        <img src={thumbnail} alt={title} />
       </div>
       <div className={Style.info}>
         <span className={Style.price}>{price}</span>

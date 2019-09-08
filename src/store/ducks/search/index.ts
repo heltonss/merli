@@ -78,7 +78,10 @@ const reducer: Reducer<ISearchProductsState> = (state = INITIAL_STATE, actions) 
     case SearchProductTypes.LOAD_REQUEST:
       return { ...state, loading: true };
     case SearchProductTypes.LOAD_SUCCESS:
-      return { ...state, data: actions.payload.data };
+      return {
+        ...state,
+        data: { ...state.data, results: actions.payload.data.results.slice(0, 4) },
+      };
     default:
       return state;
   }

@@ -1,6 +1,4 @@
-import { loadSuccess } from 'store/ducks/search/actions';
-import { ISearchProductsState } from 'store/ducks/search/types';
-import searchReducer from '../../../store/ducks/search';
+import searchReducer, { Creators, ISearchProductsState } from '../../../store/ducks/search';
 
 describe('Reducer benefit with season', () => {
   it('Should get benefit with season', () => {
@@ -21,7 +19,7 @@ describe('Reducer benefit with season', () => {
     };
     const state = searchReducer(
       { data: initialState.data, loading: false },
-      loadSuccess(update.data),
+      Creators.loadSuccess(update.data),
     );
 
     expect(state.loading).toBe(false);
