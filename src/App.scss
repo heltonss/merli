@@ -11,9 +11,9 @@
   height: auto;
   &--navigation {
     @media screen {
-      width: 80%;
       @media (min-width: $screen-md) {
         & {
+          width: 80%;
           max-width: 1200px;
           margin: 0 auto;
         }

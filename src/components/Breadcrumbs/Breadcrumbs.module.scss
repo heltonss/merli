@@ -1,40 +1,48 @@
 @import '../../assets/scss/colors';
 @import '../../assets/scss/mixins';
+@import '../../assets/scss/screen';
 
 .link {
-  @include fontSize(14px);
-  display: inline-block;
-  color: $dark-gray;
-  padding: 16px 0;
-  text-transform: lowercase;
+  @media screen {
+    display: none;
+    @media (min-width: $screen-md) {
+      & {
+        @include fontSize(14px);
+        display: inline-block;
+        color: $dark-gray;
+        padding: 16px 0;
+        text-transform: lowercase;
 
-  &::first-letter {
-    text-transform: capitalize;
-  }
+        &::first-letter {
+          text-transform: capitalize;
+        }
 
-  &:hover,
-  :active {
-    color: $dark-gray;
-  }
+        &:hover,
+        :active {
+          color: $dark-gray;
+        }
 
-  &::after {
-    position: relative;
-    content: '';
-    display: inline-block;
-    width: 0.4em;
-    height: 0.4em;
-    border-right: 1px solid $dark-gray;
-    border-top: 1px solid $dark-gray;
-    transform: rotate(45deg);
-    margin: 0 0.6em;
-  }
+        &::after {
+          position: relative;
+          content: '';
+          display: inline-block;
+          width: 0.4em;
+          height: 0.4em;
+          border-right: 1px solid $dark-gray;
+          border-top: 1px solid $dark-gray;
+          transform: rotate(45deg);
+          margin: 0 0.6em;
+        }
 
-  &:last-child {
-    font-weight: bolder;
-    color: red;
-    &::after {
-      content: '';
-      display: none;
+        &:last-child {
+          font-weight: bolder;
+          color: red;
+          &::after {
+            content: '';
+            display: none;
+          }
+        }
+      }
     }
   }
 }

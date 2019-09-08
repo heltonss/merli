@@ -1,0 +1,42 @@
+@import '../../assets/scss/colors';
+@import '../../assets/scss/mixins';
+@import '../../assets/scss/screen';
+
+.container {
+  width: 100%;
+  padding: 32px 16px;
+
+  @media only screen {
+    @media (min-width: $screen-md) {
+      & {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.solds {
+  @include fontSize(14px);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.productName {
+  @include fontSize(24px);
+  line-height: 28px;
+  width: 100%;
+
+  @media only screen {
+    @media (min-width: $screen-md) {
+      & {
+        width: 70%;
+      }
+    }
+  }
+}
+
+.price {
+  @include fontSize(46px);
+  margin: 32px 0;
+  display: block;
+}

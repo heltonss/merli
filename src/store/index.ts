@@ -1,6 +1,7 @@
 import { applyMiddleware, compose, createStore, Store } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
+import { IProductDetailState } from './ducks/product_detail';
 import reducers from './ducks/rootReducer';
 import sagas from './ducks/rootSaga';
 import { ISearchProductsState } from './ducks/search';
@@ -8,6 +9,7 @@ declare var console: any;
 
 export interface IApplicationState {
   search: ISearchProductsState;
+  productDetail: IProductDetailState;
 }
 
 const middlewares = [];

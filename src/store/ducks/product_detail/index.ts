@@ -8,63 +8,72 @@ export enum ProductDetailTypes {
   LOAD_SUCCESS = '@product_detail/LOAD_SUCCESS',
 }
 
-export interface IProductDetail {
+export interface IPicture {
   id: string;
-  site_id: string;
-  title: string;
-  subtitle: string;
-  seller_id: number;
-  category_id: string;
-  official_store_id: string;
-  price: number;
-  base_price: number;
-  original_price: null;
-  currency_id: string;
-  initial_quantity: number;
-  available_quantity: number;
-  sold_quantity: number;
-  sale_terms: any[];
-  buying_mode: string;
-  listing_type_id: string;
-  start_time: string;
-  stop_time: string;
-  condition: string;
-  permalink: string;
-  thumbnail: string;
-  secure_thumbnail: string;
-  pictures: any[];
-  video_id: null;
-  descriptions: any[];
-  accepts_mercadopago: boolean;
-  non_mercado_pago_payment_methods: any[];
-  shipping: {};
-  international_delivery_mode: string;
-  seller_address: {};
-  seller_contact: null;
-  location: {};
-  geolocation: {};
-  coverage_areas: any[];
-  attributes: any[];
-  warnings: any[];
-  listing_source: string;
-  variations: any[];
-  status: string;
-  sub_status: any[];
-  tags: any[];
-  warranty: null;
-  catalog_product_id: null;
-  domain_id: string;
-  parent_item_id: string;
-  differential_pricing: null;
-  deal_ids: any[];
-  automatic_relist: boolean;
-  date_created: string;
-  last_updated: string;
-  health: number;
-  catalog_listing: boolean;
+  url: string;
+  secure_url: string;
+  size: string;
+  max_size: string;
+  quality: string;
 }
 
-export interface ISearchProductsState {
+export interface IProductDetail {
+  id?: string;
+  site_id?: string;
+  title: string;
+  subtitle?: string;
+  seller_id?: any;
+  category_id?: string;
+  official_store_id?: string;
+  price: number;
+  base_price?: number;
+  original_price?: any;
+  currency_id?: string;
+  initial_quantity?: any;
+  available_quantity?: number;
+  sold_quantity?: number;
+  sale_terms?: any[];
+  buying_mode?: string;
+  listing_type_id?: string;
+  start_time?: string;
+  stop_time?: string;
+  condition?: string;
+  permalink?: string;
+  thumbnail?: string;
+  secure_thumbnail?: string;
+  pictures: IPicture[];
+  video_id?: any;
+  descriptions?: any[];
+  accepts_mercadopago?: boolean;
+  non_mercado_pago_payment_methods?: any[];
+  shipping?: {};
+  international_delivery_mode?: string;
+  seller_address?: {};
+  seller_contact?: any;
+  location?: {};
+  geolocation?: {};
+  coverage_areas?: any[];
+  attributes?: any[];
+  warnings?: any[];
+  listing_source?: string;
+  variations?: any[];
+  status?: string;
+  sub_status?: any[];
+  tags?: any[];
+  warranty?: any;
+  catalog_product_id?: any;
+  domain_id?: string;
+  parent_item_id?: string;
+  differential_pricing?: any;
+  deal_ids?: any[];
+  automatic_relist?: boolean;
+  date_created?: string;
+  last_updated?: string;
+  health?: any;
+  catalog_listing?: boolean;
+}
+
+export interface IProductDetailState {
   readonly data: IProductDetail;
   readonly loading: boolean;
 }
@@ -74,7 +83,7 @@ export const Creators = {
   loadSuccess: (data: IProductDetail) => action(ProductDetailTypes.LOAD_SUCCESS, { data }),
 };
 
-export function* loadSearchProducts(action: any) {
+export function* getProductDetail(action: any) {
   try {
     const { data } = yield call(Api.get, `items/${action.payload.id}`);
     yield put(Creators.loadSuccess(data));
@@ -85,13 +94,13 @@ export function* loadSearchProducts(action: any) {
   }
 }
 
-const INITIAL_STATE: ISearchProductsState = {
+const INITIAL_STATE: IProductDetailState = {
   data: {
     accepts_mercadopago: false,
     attributes: [],
     automatic_relist: false,
-    available_quantity: null,
-    base_price: null,
+    available_quantity: 0,
+    base_price: 0,
     buying_mode: '',
     catalog_listing: false,
     catalog_product_id: null,
@@ -118,8 +127,17 @@ const INITIAL_STATE: ISearchProductsState = {
     original_price: null,
     parent_item_id: '',
     permalink: '',
-    pictures: [],
-    price: null,
+    pictures: [
+      {
+        id: '',
+        max_size: '',
+        quality: '',
+        secure_url: '',
+        size: '',
+        url: '',
+      },
+    ],
+    price: 0,
     sale_terms: [],
     secure_thumbnail: '',
     seller_address: {},
@@ -127,7 +145,7 @@ const INITIAL_STATE: ISearchProductsState = {
     seller_id: null,
     shipping: {},
     site_id: '',
-    sold_quantity: null,
+    sold_quantity: 0,
     start_time: '',
     status: '',
     stop_time: '',
@@ -144,7 +162,7 @@ const INITIAL_STATE: ISearchProductsState = {
   loading: false,
 };
 
-const reducer: Reducer<ISearchProductsState> = (state = INITIAL_STATE, actions) => {
+const reducer: Reducer<IProductDetailState> = (state = INITIAL_STATE, actions) => {
   switch (actions.type) {
     case ProductDetailTypes.LOAD_REQUEST:
       return { ...state, loading: true };

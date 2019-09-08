@@ -1,0 +1,32 @@
+@import '../../assets/scss/colors';
+@import '../../assets/scss/screen';
+
+.container {
+  background: $color-background-container;
+  display: flex;
+  flex-direction: column;
+  @media only screen {
+    @media (min-width: $screen-md) {
+      & {
+        flex-direction: row;
+        padding: 32px;
+      }
+    }
+  }
+}
+
+.image {
+  width: 100%;
+  @media only screen {
+    @media (min-width: $screen-md) {
+      & {
+        min-width: 50%;
+        max-width: 680px;
+        margin-right: 40px;
+      }
+    }
+  }
+  & > img {
+    width: 100%;
+  }
+}
