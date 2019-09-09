@@ -1,6 +1,7 @@
 import { Reducer } from 'redux';
 import { call, put } from 'redux-saga/effects';
 import Api from 'services/api/api';
+import { Creators as act } from 'store/ducks/product_description';
 import { action } from 'typesafe-actions';
 
 export enum ProductDetailTypes {
@@ -87,6 +88,7 @@ export function* getProductDetail(action: any) {
   try {
     const { data } = yield call(Api.get, `items/${action.payload.id}`);
     yield put(Creators.loadSuccess(data));
+    yield put(act.getProductDescription(action.payload.id));
   } catch (error) {
     // adiciona action de erro
     // tslint:disable-next-line: no-console

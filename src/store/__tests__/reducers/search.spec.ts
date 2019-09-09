@@ -1,7 +1,7 @@
 import searchReducer, { Creators, ISearchProductsState } from '../../../store/ducks/search';
 
-describe('Reducer benefit with season', () => {
-  it('Should get benefit with season', () => {
+describe('Reducer search', () => {
+  it('Should get search of products', () => {
     const initialState: ISearchProductsState = {
       data: {
         query: '',

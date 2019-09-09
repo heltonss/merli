@@ -1,7 +1,7 @@
 import searchReducer, { Creators } from '../../ducks/product_detail';
 
-describe('Reducer benefit with season', () => {
-  it('Should get benefit with season', () => {
+describe('Reducer product detail', () => {
+  it('Should get product detail', () => {
     const initialState = {
       data: {
         accepts_mercadopago: false,
