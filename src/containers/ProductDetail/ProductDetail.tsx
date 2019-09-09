@@ -29,9 +29,8 @@ class ProductDetail extends Component<props> {
 
   getProduct() {
     const { getProductDetail, match } = this.props;
-
-    console.log(this.props.match.params.id);
-    getProductDetail(this.props.match.params.id);
+    const { id } = match.params;
+    getProductDetail(id);
   }
 
   render() {
