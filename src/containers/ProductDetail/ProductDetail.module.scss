@@ -31,6 +31,8 @@
 
 .image {
   width: 100%;
+  text-align: center;
+
   @media only screen {
     @media (min-width: $screen-md) {
       & {
@@ -39,9 +41,6 @@
         margin-right: 40px;
       }
     }
-  }
-  & > img {
-    width: 100%;
   }
 }
 

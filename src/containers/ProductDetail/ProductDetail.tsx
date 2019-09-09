@@ -1,13 +1,18 @@
 import Buy from 'components/Buy/Buy';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { RouteComponentProps, withRouter } from 'react-router';
 import { bindActionCreators, Dispatch } from 'redux';
 import { IApplicationState } from 'store';
 import { IProductDescription } from 'store/ducks/product_description';
 import { IProductDetail } from 'store/ducks/product_detail';
 import { Creators as getProductDetail } from 'store/ducks/product_detail';
 import Style from './ProductDetail.module.scss';
-interface IStateToProps {
+
+interface ITParams {
+  id: string;
+}
+interface IStateToProps extends RouteComponentProps<ITParams> {
   product: IProductDetail;
   description: IProductDescription;
 }
@@ -23,8 +28,10 @@ class ProductDetail extends Component<props> {
   }
 
   getProduct() {
-    const { getProductDetail } = this.props;
-    getProductDetail('MLA786117240');
+    const { getProductDetail, match } = this.props;
+
+    console.log(this.props.match.params.id);
+    getProductDetail(this.props.match.params.id);
   }
 
   render() {
@@ -61,7 +68,9 @@ const mapStateToProps = (state: IApplicationState) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(getProductDetail, dispatch);
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(ProductDetail);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(ProductDetail),
+);
