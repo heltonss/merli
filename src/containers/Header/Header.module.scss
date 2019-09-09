@@ -11,9 +11,11 @@
     height: inherit;
     align-items: center;
     display: flex;
+    flex-direction: column;
     @media only screen {
       @media (min-width: $screen-md) {
         & {
+          flex-direction: row;
           width: 80%;
           max-width: 1200px;
           margin: 0 auto;

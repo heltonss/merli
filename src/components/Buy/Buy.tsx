@@ -1,3 +1,4 @@
+import CurrencyFormat from 'components/CurrencyFormat/CurrencyFormat';
 import React from 'react';
 import Button from '../Button/Button';
 import Style from './Buy.module.scss';
@@ -16,7 +17,7 @@ const Buy: React.FC<IOwnProps> = ({ solds, nameProduct, price }: IOwnProps) => {
     <div className={Style.container}>
       <span className={Style.solds}>{solds}</span>
       <h1 className={Style.productName}>{nameProduct}</h1>
-      <span className={Style.price}>{price}</span>
+      <span className={Style.price}>{<CurrencyFormat value={price} />}</span>
       <Button label={'Comprar'} func={buyProduct} />
     </div>
   );

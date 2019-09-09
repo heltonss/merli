@@ -1,3 +1,4 @@
+import CurrencyFormat from 'components/CurrencyFormat/CurrencyFormat';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Style from './Product.module.scss';
@@ -17,7 +18,7 @@ const Product: React.FC<IOwnProps> = ({ id, price, title, region, thumbnail }: I
         <img src={thumbnail} alt={title} />
       </div>
       <div className={Style.info}>
-        <span className={Style.price}>{price}</span>
+        <span className={Style.price}>{<CurrencyFormat value={price} />}</span>
         <p className={Style.title}>{title}</p>
       </div>
       <span className={Style.region}>{region}</span>

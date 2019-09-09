@@ -2,15 +2,16 @@ import IconSearch from 'components/Icons/IconSearch/IconSearch';
 import Input from 'components/Input/Input';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { RouteComponentProps, withRouter } from 'react-router';
 import { bindActionCreators, Dispatch } from 'redux';
 import { Creators as searchProducts } from 'store/ducks/search';
 import Style from './Search.module.scss';
 
-interface IOwnProps {
+interface IOwnProps extends RouteComponentProps {
   searchProducts(product: string): void;
 }
 
-const Search: React.FC = (props: any) => {
+const Search: React.FC<IOwnProps> = (props: IOwnProps) => {
   const [valueSearch, setValueSearch] = useState('');
 
   const getValueInput = (value: string) => {
@@ -18,6 +19,7 @@ const Search: React.FC = (props: any) => {
   };
 
   const search = () => {
+    props.history.push('/');
     props.searchProducts(valueSearch);
   };
 
@@ -37,7 +39,9 @@ const Search: React.FC = (props: any) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(searchProducts, dispatch);
 
-export default connect(
-  undefined,
-  mapDispatchToProps,
-)(Search);
+export default withRouter(
+  connect(
+    undefined,
+    mapDispatchToProps,
+  )(Search),
+);

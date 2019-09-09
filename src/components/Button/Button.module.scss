@@ -2,6 +2,7 @@
 @import '../../assets/scss/mixins';
 
 .container {
+  @include fontSize(16px);
   background: $blue;
   cursor: pointer;
   color: #fff;

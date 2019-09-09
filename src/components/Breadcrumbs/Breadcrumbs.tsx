@@ -4,20 +4,17 @@ import Style from './Breadcrumbs.module.scss';
 
 const Breadcrumbs: React.FC = () => {
   return (
-    <>
-      <Link className={Style.link} to="/eletronica">
-        eletronica
+    <div className={Style.container}>
+      <Link className={Style.link} to="/">
+        Busca
       </Link>
-      <Link className={Style.link} to="/eletronica">
-        eletronica 2
+      <Link className={Style.link} to="/">
+        smartphones
       </Link>
-      <Link className={Style.link} to="/eletronica 3">
-        eletronica duarte
+      <Link className={Style.link} to="/">
+        mock sem funcionamento
       </Link>
-      <Link className={Style.link} to="/eletronica 4">
-        eletronica teste
-      </Link>
-    </>
+    </div>
   );
 };
 
