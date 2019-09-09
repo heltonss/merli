@@ -10,6 +10,7 @@
     @media (min-width: $screen-md) {
       & {
         padding: 0;
+        max-width: 350px;
       }
     }
   }
@@ -25,14 +26,6 @@
   @include fontSize(24px);
   line-height: 28px;
   width: 100%;
-
-  @media only screen {
-    @media (min-width: $screen-md) {
-      & {
-        width: 70%;
-      }
-    }
-  }
 }
 
 .price {
