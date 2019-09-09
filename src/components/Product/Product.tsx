@@ -13,7 +13,7 @@ interface IOwnProps {
 
 const Product: React.FC<IOwnProps> = ({ id, price, title, region, thumbnail }: IOwnProps) => {
   return (
-    <Link to={`items/${id}`} className={Style.container}>
+    <Link tabIndex={0} to={`items/${id}`} className={Style.container}>
       <div className={Style.image}>
         <img src={thumbnail} alt={title} />
       </div>

@@ -10,6 +10,7 @@ interface IOwnProps {
 const IconSearch: React.FC<IOwnProps> = ({ isRounded, func }: IOwnProps) => {
   return (
     <i
+      tabIndex={0}
       onClick={func}
       className={classnames([Style.container, { [`${Style.rounded}`]: isRounded }])}
     />

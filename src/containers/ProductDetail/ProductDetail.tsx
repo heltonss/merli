@@ -39,7 +39,7 @@ class ProductDetail extends Component<props> {
     const { plain_text } = description;
     return (
       <>
-        <div className={Style.container}>
+        <div tabIndex={0} className={Style.container}>
           <div className={Style.product}>
             <div className={Style.image}>
               <img src={pictures[0].url} alt={title} />
@@ -51,8 +51,12 @@ class ProductDetail extends Component<props> {
             />
           </div>
           <div className={Style.description}>
-            <h2 className={Style.subtitle}>Description del producto</h2>
-            <p className={Style.text}> {plain_text} </p>
+            <h2 tabIndex={0} className={Style.subtitle}>
+              Description del producto
+            </h2>
+            <p tabIndex={0} className={Style.text}>
+              {plain_text}
+            </p>
           </div>
         </div>
       </>

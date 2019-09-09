@@ -30,6 +30,7 @@ const Input: React.FC<IOwnProps> = ({
   };
   return (
     <input
+      tabIndex={0}
       className={classnames([Style.container, parentClassStyle])}
       type={type}
       placeholder={placeholder}
